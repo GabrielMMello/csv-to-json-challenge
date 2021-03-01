@@ -44,12 +44,6 @@ Este é o projeto de um conversor de dados no formato CSV para o fomato JSON.
 
 Este projeto é dividido em duas partes:
 1. Conversor de CSV para JSON ([arquivo index.js](https://github.com/GabrielMMello/csv-to-json-challenge/blob/main/index.js))
-2. Testes automatizados do conversor
-
-Os testes automatizados executam o conversor recebendo como valor de entrada os arquivos de entrada e comparando com os arquivos de saída esperados.
-
-Os testes foram realizados de modo que, caso o conversor não passe em algum teste, o erro seja exibido no cmd/terminal. 
-Por outro lado, caso o conversor passe nos testes não haverá nenhuma notificação no cmd/terminal.
 
 ### Pré-requisitos
 
