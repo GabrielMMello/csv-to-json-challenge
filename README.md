@@ -51,7 +51,7 @@ Antes de começar, você precisará ter as seguintes ferramentas instaladas na s
 [Git] (https://git-scm.com) e [Node.js] (https://nodejs.org/en/) na versão 14.15.5
 Além disso, é bom ter um editor para trabalhar com o código como o [VSCode] (https://code.visualstudio.com/)
 
-#### Rodando os testes (executando o conteúdo do arquivo)
+#### Executando o conteúdo do arquivo
 
 ```bash
 
@@ -64,7 +64,7 @@ $ cd csv-to-json-challenge
 # Execute o programa com os testes com o seguinte comando
 $ node index.js
 
-# O resultado será exibido no cmd/terminal. Como padrão o conversor será baixado passando nos testes. 
+# Será gerado um arquivo output.json com o resultado da conversão
 
 
 ```
