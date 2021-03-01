@@ -1,4 +1,4 @@
-const { readFile, writeFile } = require('fs/promises')
+const { readFile, writeFile } = require('fs').promises
 
 class File {
     static async csvToJson(filePath) {
@@ -135,53 +135,3 @@ class File {
     }
 })()
 
-
-
-// Testes comparando com o output esperado. Diferenças encontradas são mostradas no console
-;
-(async() => {
-    const resultFilePath = './output.json'
-    const resultBuffer = await readFile(resultFilePath)
-    const result = JSON.parse(resultBuffer.toString('utf8'))
-    
-    const expectedFilePath = './outputExample.json'
-    const expectedBuffer = await readFile(expectedFilePath)
-    const expected = JSON.parse(expectedBuffer.toString('utf8'))
-
-    expected.map((user, index) => {
-        for (const [ key, value ] of Object.entries(user)) {
-            if (!result[index].hasOwnProperty(key)) console.log("expected", key, "result", result[index])
-
-            if (typeof value !== "object" && value !== result[index][key]) console.log("value", value, "result", result[index][key])
-
-            if (typeof value === "object" && value.hasOwnProperty("length")) {
-                if (typeof value[0] !== "object") {
-                    value.map(item => {
-                        if (!result[index][key].includes(item)) console.log("item", item, "result", result[index][key])
-                    })
-                }
-
-                else if (typeof value[0] === "object" && !value[0].hasOwnProperty("length")) {
-                    value.map(expectedObj => {
-
-                        const existInResult = result[index][key].find(resultObj => {
-                            for (const [objKey, expectedObjValue] of Object.entries(expectedObj)) {
-                                
-                                if (typeof expectedObjValue !== "object") {
-                                    if (expectedObjValue !== resultObj[objKey]) return false
-                                }
-                                else {
-                                    if (expectedObjValue.find(field => !resultObj[objKey].includes(field))) return false
-                                }
-                                
-                            }
-                            return true
-                        })
-
-                        if (!existInResult) console.log("here")
-                    })
-                }
-            }
-        }
-    })
-})()
