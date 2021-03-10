@@ -42,7 +42,7 @@ Este é o projeto de um conversor de dados no formato CSV para o fomato JSON.
 
 ## Como funciona
 
-Este projeto é dividido em duas partes:
+Este projeto possui apenas uma parte:
 1. Conversor de CSV para JSON ([arquivo index.js](https://github.com/GabrielMMello/csv-to-json-challenge/blob/main/index.js))
 
 ### Pré-requisitos
